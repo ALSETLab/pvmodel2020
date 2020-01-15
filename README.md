@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/234182311.svg)](https://zenodo.org/badge/latestdoi/234182311)
+
 # Real-Time Simulation Models for Photovoltaic Cells and Arrays in Opal-RT and Typhoon-HIL
 <img src="https://github.com/ALSETLab/pvmodel2020/blob/master/ALSET_PV_models/pic/pic.png" data-canonical-src="https://github.com/ALSETLab/pvmodel2020/blob/master/ALSET_PV_models/pic/pic.png" width="280" height="240" />
 
