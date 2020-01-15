@@ -1,0 +1,2133 @@
+version = 4.2
+
+
+//
+// Saved by sw version: 2018.1 SP1
+// Save timestamp: 22-Jul-2019 @ 11:51:08 AM
+//
+
+model "Cici_PV" {
+    configuration {
+        hil_device = "HIL603"
+        hil_configuration_id = 1
+        simulation_method = exact
+        simulation_time_step = auto
+        simulation_discret_scaling = 1.0
+        dsp_timer_periods = 100e-6, 50e-3
+        ss_calc_method = "systematic elimination"
+        enb_pole_shift = True
+        enb_gds_oversampling = True
+        show_modes = False
+        device_ao_limit_enable = True
+        cpl_stb = False
+        enb_dep_sw_detect = False
+        code_section = "internal memory"
+        data_section = "internal memory"
+        sys_sp_rate_1 = 0.0001
+        sys_sp_rate_2 = 0.05
+        sys_real_type_precision = "default"
+        user_real_type_precision = "default"
+        sys_cpu_optimization = "high"
+        user_cpu_optimization = "high"
+    }
+
+    
+    component Subsystem Root {
+
+        
+        component gen_probe V_array {
+            
+	    
+        }
+        [
+            position = 8024, 8112
+
+        ]
+        
+        component gen_probe I_array {
+            
+	    
+        }
+        [
+            position = 8032, 8304
+
+        ]
+        
+        component src_scada_input VDC {
+            
+            execution_rate = "50e-6"
+            unit = ""
+	    
+        }
+        [
+            position = 7584, 8040
+
+        ]
+        
+        component src_scada_input Ns {
+            
+            execution_rate = "50e-6"
+            unit = ""
+	    
+        }
+        [
+            position = 7416, 8224
+
+        ]
+        
+        component src_scada_input Np {
+            
+            execution_rate = "50e-6"
+            unit = ""
+	    
+        }
+        [
+            position = 7400, 8312
+
+        ]
+        
+        component src_constant T {
+            
+            execution_rate = "50e-6"
+            value = "25"
+	    
+        }
+        [
+            position = 7504, 8088
+
+        ]
+        
+        component src_constant E {
+            
+            execution_rate = "50e-6"
+            value = "1000"
+	    
+        }
+        [
+            position = 7528, 8152
+
+        ]
+        
+        component src_constant Ncell {
+            
+            execution_rate = "50e-6"
+            value = "40"
+	    
+        }
+        [
+            position = 7544, 8344
+
+        ]
+        
+        component src_constant alpha_Isc {
+            
+            execution_rate = "50e-6"
+            value = "0.00002"
+	    
+        }
+        [
+            position = 7552, 8408
+
+        ]
+        
+        component src_constant Isc {
+            
+            execution_rate = "50e-6"
+            value = "5"
+	    
+        }
+        [
+            position = 7552, 8464
+
+        ]
+        
+        component src_constant beta_Voc {
+            
+            execution_rate = "50e-6"
+            value = "-0.1"
+	    
+        }
+        [
+            position = 7552, 8520
+
+        ]
+        
+        component src_constant Voc {
+            
+            execution_rate = "50e-6"
+            value = "43.8"
+	    
+        }
+        [
+            position = 7552, 8576
+
+        ]
+        
+        component src_constant Vmpp {
+            
+            execution_rate = "50e-6"
+            value = "35"
+	    
+        }
+        [
+            position = 7552, 8648
+
+        ]
+        
+        component src_constant Impp {
+            
+            execution_rate = "50e-6"
+            value = "4.58"
+	    
+        }
+        [
+            position = 7552, 8712
+
+        ]
+        
+        component Subsystem PV_array {
+            layout = dynamic
+
+            
+            component gen_limiter Limit1 {
+                
+                lower_limit = "0"
+                upper_limit = "876"
+    	    
+            }
+            [
+                position = 8776, 8488
+
+            ]
+            
+            component gen_transport_delay "Transport Delay1" {
+                
+                time_delay = "0.05"
+    	    
+            }
+            [
+                position = 8872, 8488
+
+            ]
+            
+            component gen_c_function "C function1" {
+                
+                global_variables = "real Istart;real I1;real I2;real I3;real I4;real I5;real FI0;real FpI0;real FI1;real FpI1;real FI2;real FpI2;real FI3;real FpI3;real FI4;real FpI4;"
+                in_terminal_dimensions = "inherit;inherit;inherit;inherit;inherit"
+                in_terminal_dimensions_str = "Isc inherit;I0 inherit;Rs inherit;Vt inherit;V inherit"
+                in_terminal_labels = "[('Isc', True), ('I0', True), ('Rs', True), ('Vt', True), ('V', True)]"
+                in_terminal_properties = "real Isc;real I0;real Rs;real Vt;real V;"
+                init_fnc = "/*Begin code section*/
+            Istart=0.01; 
+            FI0=0; 
+            FpI0=0; 
+            I1=Istart; 
+
+            FI1=0; 
+            FpI1=0; 
+            I2=I1; 
+
+            FI2=0; 
+            FpI2=0; 
+            I3=I2; 
+
+            FI3=0; 
+            FpI3=0; 
+            I4=I3;
+
+            FI4=0; 
+            FpI4=0; 
+            I5=4.58;
+            /*End code section*/"
+                no_feed_inputs = "['']"
+                no_feed_outputs = "['']"
+                out_terminal_dimensions = "inherit;inherit"
+                out_terminal_dimensions_str = "V_array inherit;I_array inherit"
+                out_terminal_labels = "[('V_array', True), ('I_array', True)]"
+                out_terminal_properties = "real V_array;real I_array;"
+                output_fnc = "/*Begin code section*/
+            FI0=Istart-Isc+I0*(exp((V+Istart*Rs)/Vt)-1);
+            FpI0=1+I0*(exp((V+Istart*Rs)/Vt))*Rs/Vt;
+            I1=Istart-FI0/FpI0;
+
+            FI1=I1-Isc+I0*(exp((V+I1*Rs)/Vt)-1);
+            FpI1=1+I0*(exp((V+I1*Rs)/Vt))*Rs/Vt;
+            I2=I1-FI1/FpI1;
+
+            FI2=I2-Isc+I0*(exp((V+I2*Rs)/Vt)-1);
+            FpI2=1+I0*(exp((V+I2*Rs)/Vt))*Rs/Vt;
+            I3=I2-FI2/FpI2;
+
+            FI3=I3-Isc+I0*(exp((V+I3*Rs)/Vt)-1);
+            FpI3=1+I0*(exp((V+I3*Rs)/Vt))*Rs/Vt;
+            I4=I3-FI3/FpI3;
+
+            FI4=I4-Isc+I0*(exp((V+I4*Rs)/Vt)-1);
+            FpI4=1+I0*(exp((V+I4*Rs)/Vt))*Rs/Vt;
+            I5=I4-FI4/FpI4;
+
+            I_array=I5;
+            V_array = V;
+            /*End code section*/"
+    	    
+            }
+            [
+                position = 9016, 8280
+                size = 144, 456
+
+            ]
+            
+            component gen_product Product1 {
+                
+    	    
+            }
+            [
+                position = 8712, 8072
+
+            ]
+            
+            component gen_product Product2 {
+                
+    	    
+            }
+            [
+                position = 8608, 8176
+
+            ]
+            
+            component gen_product Product3 {
+                
+                signs = "*/"
+    	    
+            }
+            [
+                position = 8648, 7816
+
+            ]
+            
+            component gen_product Product4 {
+                
+    	    
+            }
+            [
+                position = 8848, 8280
+
+            ]
+            
+            component gen_product Product5 {
+                
+    	    
+            }
+            [
+                position = 8856, 8384
+
+            ]
+            
+            component Subsystem Thermal_Voltage {
+                layout = dynamic
+
+                
+                component src_constant Tref_K {
+                    
+                    execution_rate = "50e-6"
+                    value = "273.15"
+        	    
+                }
+                [
+                    position = 7008, 8032
+
+                ]
+                
+                component gen_sum Sum1 {
+                    
+        	    
+                }
+                [
+                    position = 7104, 8000
+
+                ]
+                
+                component gen_product Product1 {
+                    
+        	    
+                }
+                [
+                    position = 7264, 7920
+
+                ]
+                
+                component src_constant A {
+                    
+                    execution_rate = "50e-6"
+        	    
+                }
+                [
+                    position = 7000, 7768
+
+                ]
+                
+                component src_constant K {
+                    
+                    execution_rate = "50e-6"
+                    value = "1.38e-23"
+        	    
+                }
+                [
+                    position = 7000, 7848
+
+                ]
+                
+                component gen_product Product2 {
+                    
+        	    
+                }
+                [
+                    position = 7128, 7800
+
+                ]
+                
+                component src_constant q {
+                    
+                    execution_rate = "50e-6"
+                    value = "1.6e-19"
+        	    
+                }
+                [
+                    position = 7320, 8008
+
+                ]
+                
+                component gen_product Product3 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 7432, 7952
+
+                ]
+                
+                component gen_product Product4 {
+                    
+        	    
+                }
+                [
+                    position = 7600, 7944
+
+                ]
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                port T {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7008, 7960
+
+                ]
+                
+                port Ncell {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7480, 7800
+
+                ]
+                
+                port Vt {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = in
+                    sp_type {
+                        default = inherit
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7728, 7944
+
+                ]
+                connect A.out Product2.in as Connection4
+                
+                connect Ncell Product4.in as Connection9
+                
+                connect Product1.in1 Sum1.out as Connection3
+                
+                connect Product2.in1 K.out as Connection5
+                
+                connect Product2.out Product1.in as Connection6
+                
+                connect Product3.in Product1.out as Connection8
+                
+                connect Product3.in1 q.out as Connection7
+                
+                connect Product4.in1 Product3.out as Connection11
+                
+                connect Sum1.in T as Connection1
+                
+                connect Tref_K.out Sum1.in1 as Connection2
+                
+                connect Vt Product4.out as Connection10
+                
+                
+
+                
+            }
+            [
+                position = 7920, 7936
+                size = 112, 56
+
+            ]
+            
+            component Subsystem Short_ckt_I_T_dependence {
+                layout = dynamic
+
+                
+                component gen_product Product1 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 7864, 7632
+
+                ]
+                
+                component gen_product Product2 {
+                    
+        	    
+                }
+                [
+                    position = 8000, 7680
+
+                ]
+                
+                component src_constant Constant1 {
+                    
+                    execution_rate = "50e-6"
+                    value = "100"
+        	    
+                }
+                [
+                    position = 7880, 7720
+
+                ]
+                
+                component gen_product Product3 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 8144, 7688
+
+                ]
+                
+                component src_constant Constant2 {
+                    
+                    execution_rate = "50e-6"
+                    value = "100"
+        	    
+                }
+                [
+                    position = 8016, 7776
+
+                ]
+                
+                component src_constant Tref {
+                    
+                    execution_rate = "50e-6"
+                    value = "25"
+        	    
+                }
+                [
+                    position = 7856, 7968
+
+                ]
+                
+                component gen_sum Sum1 {
+                    
+                    signs = "+-"
+        	    
+                }
+                [
+                    position = 7968, 7936
+
+                ]
+                
+                component gen_product Product4 {
+                    
+        	    
+                }
+                [
+                    position = 8296, 7792
+
+                ]
+                
+                component gen_sum Sum2 {
+                    
+        	    
+                }
+                [
+                    position = 8424, 7760
+
+                ]
+                
+                component src_constant Constant3 {
+                    
+                    execution_rate = "50e-6"
+        	    
+                }
+                [
+                    position = 8272, 7648
+
+                ]
+                
+                component gen_product Product5 {
+                    
+        	    
+                }
+                [
+                    position = 8544, 7752
+
+                ]
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                port T {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7864, 7880
+
+                ]
+                
+                port alpha_Isc {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7752, 7584
+
+                ]
+                
+                port Isc {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7608, 7640
+
+                ]
+                
+                port IscT {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = in
+                    sp_type {
+                        default = inherit
+                        readonly = True
+                    }
+                }
+                [
+                    position = 8680, 7752
+
+                ]
+                
+                junction Junction1 sp
+                [
+                    position = 7664, 7640
+
+                ]
+                connect Constant1.out Product2.in1 as Connection4
+                [
+                            breakpoints =7928, 7720;7928, 7688
+
+                ]
+                connect Constant2.out Product3.in1 as Connection6
+                [
+                            breakpoints =8064, 7776;8064, 7696
+
+                ]
+                connect Constant3.out Sum2.in as Connection11
+                
+                connect IscT Product5.out as Connection17
+                
+                connect Junction1 Isc as Connection15
+                
+                connect Product1.in1 Junction1 as Connection14
+                
+                connect Product2.in Product1.out as Connection3
+                [
+                            breakpoints =7928, 7672;7928, 7632
+
+                ]
+                connect Product3.in Product2.out as Connection5
+                
+                connect Product4.in Product3.out as Connection9
+                
+                connect Product4.in1 Sum1.out as Connection10
+                [
+                            breakpoints =8136, 7800;8136, 7936
+
+                ]
+                connect Product5.in Junction1 as Connection16
+                [
+                            breakpoints =8464, 7536;7664, 7536
+
+                ]
+                connect Product5.in1 Sum2.out as Connection13
+                
+                connect Sum1.in T as Connection7
+                
+                connect Sum1.in1 Tref.out as Connection8
+                
+                connect Sum2.in1 Product4.out as Connection12
+                
+                connect alpha_Isc Product1.in as Connection1
+                
+                
+
+                
+            }
+            [
+                position = 7944, 8160
+                size = 152, 152
+
+            ]
+            
+            component Subsystem Open_ckt_V {
+                layout = dynamic
+
+                
+                component src_constant Tref {
+                    
+                    execution_rate = "50e-6"
+                    value = "25"
+        	    
+                }
+                [
+                    position = 7856, 7968
+
+                ]
+                
+                component gen_product Product1 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 7864, 7632
+
+                ]
+                
+                component gen_product Product4 {
+                    
+        	    
+                }
+                [
+                    position = 8296, 7792
+
+                ]
+                
+                component gen_sum Sum1 {
+                    
+                    signs = "+-"
+        	    
+                }
+                [
+                    position = 7968, 7936
+
+                ]
+                
+                component gen_product Product2 {
+                    
+        	    
+                }
+                [
+                    position = 8072, 7656
+
+                ]
+                
+                component src_constant Constant4 {
+                    
+                    execution_rate = "50e-6"
+                    value = "100"
+        	    
+                }
+                [
+                    position = 7736, 7680
+
+                ]
+                
+                component gen_sum Sum2 {
+                    
+        	    
+                }
+                [
+                    position = 8448, 7784
+
+                ]
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                port T {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7864, 7880
+
+                ]
+                
+                port beta_Voc {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7752, 7584
+
+                ]
+                
+                port Voc {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7600, 7672
+
+                ]
+                
+                port Voc_out {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = in
+                    sp_type {
+                        default = inherit
+                        readonly = True
+                    }
+                }
+                [
+                    position = 8584, 7784
+
+                ]
+                
+                junction Junction1 sp
+                [
+                    position = 7664, 7672
+
+                ]
+                connect Constant4.out Product1.in1 as Connection19
+                
+                connect Junction1 Product2.in1 as Connection27
+                [
+                            breakpoints =7664, 7672;7664, 7776;7768, 7776;7768, 7776;8032, 7776
+
+                ]
+                connect Product2.in Product1.out as Connection3
+                [
+                            breakpoints =8032, 7632;7904, 7632
+
+                ]
+                connect Product4.in Product2.out as Connection23
+                
+                connect Product4.in1 Sum1.out as Connection10
+                
+                connect Sum1.in T as Connection7
+                
+                connect Sum1.in1 Tref.out as Connection8
+                
+                connect Sum2.in Junction1 as Connection28
+                [
+                            breakpoints =8336, 7504;7768, 7504;7768, 7504;7664, 7504;7664, 7672
+
+                ]
+                connect Sum2.in1 Product4.out as Connection25
+                
+                connect Sum2.out Voc_out as Connection29
+                
+                connect Voc Junction1 as Connection26
+                
+                connect beta_Voc Product1.in as Connection1
+                
+                
+
+                
+            }
+            [
+                position = 7944, 8368
+                size = 144, 152
+
+            ]
+            
+            component Subsystem Resistance {
+                layout = dynamic
+
+                
+                component gen_sum Sum1 {
+                    
+                    signs = "+-"
+        	    
+                }
+                [
+                    position = 7896, 7920
+
+                ]
+                
+                component gen_product Product1 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 8072, 7928
+
+                ]
+                
+                component gen_math_fnc "Mathematical function1" {
+                    
+                    mathematical_fn = "ln"
+        	    
+                }
+                [
+                    position = 8192, 7928
+
+                ]
+                
+                component gen_product Product2 {
+                    
+        	    
+                }
+                [
+                    position = 8296, 7864
+
+                ]
+                
+                component gen_sum Sum2 {
+                    
+        	    
+                }
+                [
+                    position = 8456, 7904
+
+                ]
+                
+                component gen_sum Sum3 {
+                    
+                    signs = "+-"
+        	    
+                }
+                [
+                    position = 8624, 7912
+
+                ]
+                
+                component gen_product Product3 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 8784, 7920
+
+                ]
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                port Vmpp {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 8496, 7984
+
+                ]
+                
+                port Impp {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7776, 7928
+
+                ]
+                
+                port Voc {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 8336, 7984
+
+                ]
+                
+                port Vt {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 8184, 7856
+
+                ]
+                
+                port Isc {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7776, 7864
+
+                ]
+                
+                port Rs {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = in
+                    sp_type {
+                        default = inherit
+                        readonly = True
+                    }
+                }
+                [
+                    position = 8896, 7920
+
+                ]
+                
+                junction Junction1 sp
+                [
+                    position = 7856, 7864
+
+                ]
+                
+                junction Junction2 sp
+                [
+                    position = 7816, 7928
+
+                ]
+                connect Isc Junction1 as Connection4
+                
+                connect Junction1 Sum1.in as Connection5
+                
+                connect Junction2 Impp as Connection16
+                
+                connect "Mathematical function1.in" Product1.out as Connection7
+                
+                connect Product1.in1 Junction1 as Connection6
+                
+                connect Product1.in Sum1.out as Connection3
+                
+                connect Product2.in1 "Mathematical function1.out" as Connection9
+                
+                connect Product3.in1 Junction2 as Connection17
+                [
+                            breakpoints =8664, 8056;7816, 8056
+
+                ]
+                connect Product3.in Sum3.out as Connection14
+                
+                connect Rs Product3.out as Connection18
+                
+                connect Sum1.in1 Junction2 as Connection15
+                
+                connect Sum2.in Product2.out as Connection10
+                
+                connect Sum2.in1 Voc as Connection11
+                
+                connect Sum3.in Sum2.out as Connection12
+                
+                connect Sum3.in1 Vmpp as Connection13
+                
+                connect Vt Product2.in as Connection8
+                
+                
+
+                
+            }
+            [
+                position = 8296, 7904
+                size = 192, 176
+
+            ]
+            
+            component Subsystem Shirt_crk_I_TE_dependence {
+                layout = dynamic
+
+                
+                component gen_product Product1 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 7840, 8040
+
+                ]
+                
+                component src_constant Constant1 {
+                    
+                    execution_rate = "50e-6"
+                    value = "1000"
+        	    
+                }
+                [
+                    position = 7736, 8112
+
+                ]
+                
+                component gen_product Product2 {
+                    
+        	    
+                }
+                [
+                    position = 7944, 8000
+
+                ]
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                port E {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7736, 8032
+
+                ]
+                
+                port IscT {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7776, 7992
+
+                ]
+                
+                port Isc_out {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = in
+                    sp_type {
+                        default = inherit
+                        readonly = True
+                    }
+                }
+                [
+                    position = 8040, 8000
+
+                ]
+                connect Constant1.out Product1.in1 as Connection2
+                
+                connect Isc_out Product2.out as Connection5
+                
+                connect Product1.in E as Connection1
+                
+                connect Product2.in IscT as Connection4
+                
+                connect Product2.in1 Product1.out as Connection3
+                
+                
+
+                
+            }
+            [
+                position = 8368, 8320
+                size = 136, 72
+
+            ]
+            
+            component Subsystem Dark_Current {
+                layout = dynamic
+
+                
+                component gen_product Product1 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 7784, 8056
+
+                ]
+                
+                component gen_math_fnc "Mathematical function1" {
+                    
+        	    
+                }
+                [
+                    position = 7920, 8056
+
+                ]
+                
+                component gen_product Product2 {
+                    
+                    signs = "*/"
+        	    
+                }
+                [
+                    position = 8056, 8008
+
+                ]
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                port Isc {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7888, 7968
+
+                ]
+                
+                port Voc {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7688, 8024
+
+                ]
+                
+                port Vt {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = out
+                    sp_type {
+                        default = auto
+                        readonly = True
+                    }
+                }
+                [
+                    position = 7688, 8104
+
+                ]
+                
+                port I0 {
+                    
+                    position = auto:auto
+                    kind = sp
+                    direction = in
+                    sp_type {
+                        default = inherit
+                        readonly = True
+                    }
+                }
+                [
+                    position = 8168, 8008
+
+                ]
+                connect Isc Product2.in as Connection5
+                
+                connect "Mathematical function1.in" Product1.out as Connection3
+                
+                connect Product1.in Voc as Connection1
+                
+                connect Product1.in1 Vt as Connection2
+                
+                connect Product2.out I0 as Connection6
+                
+                connect Product2.in1 "Mathematical function1.out" as Connection4
+                
+                
+
+                
+            }
+            [
+                position = 8440, 8184
+                size = 168, 136
+
+            ]
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            port VDC {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8680, 8488
+
+            ]
+            
+            port T {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 7576, 8104
+
+            ]
+            
+            port E {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8240, 8304
+
+            ]
+            
+            port Ns {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8488, 7808
+
+            ]
+            
+            port Np {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8456, 8032
+
+            ]
+            
+            port Ncell {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 7576, 7944
+
+            ]
+            
+            port alpha_Isc {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 7576, 8160
+
+            ]
+            
+            port Isc {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 7576, 8216
+
+            ]
+            
+            port beta_Voc {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 7576, 8368
+
+            ]
+            
+            port Voc {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 7576, 8424
+
+            ]
+            
+            port Vmpp {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8016, 7840
+
+            ]
+            
+            port Impp {
+                
+                position = auto:auto
+                kind = sp
+                direction = out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8072, 7872
+
+            ]
+            
+            port V_array {
+                
+                position = auto:auto
+                kind = sp
+                direction = in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 9224, 8072
+
+            ]
+            
+            port I_array {
+                
+                position = auto:auto
+                kind = sp
+                direction = in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 9248, 8488
+
+            ]
+            
+            junction Junction2 sp
+            [
+                position = 7776, 8104
+
+            ]
+            
+            junction Junction3 sp
+            [
+                position = 7776, 8104
+
+            ]
+            
+            junction Junction4 sp
+            [
+                position = 7640, 8424
+
+            ]
+            
+            junction Junction5 sp
+            [
+                position = 7672, 8216
+
+            ]
+            
+            junction Junction6 sp
+            [
+                position = 8072, 8160
+
+            ]
+            
+            junction Junction7 sp
+            [
+                position = 8128, 7936
+
+            ]
+            
+            junction Junction9 sp
+            [
+                position = 8568, 8032
+
+            ]
+            
+            junction Junction10 sp
+            [
+                position = 8568, 8064
+
+            ]
+            
+            junction Junction11 sp
+            [
+                position = 8544, 7808
+
+            ]
+            
+            junction Junction12 sp
+            [
+                position = 8128, 8232
+
+            ]
+            connect Dark_Current.Vt Junction12 as Connection73
+            
+            connect Dark_Current.Isc Junction6 as Connection38
+            
+            connect Dark_Current.Voc Open_ckt_V.Voc_out as Connection53
+            [
+                        breakpoints =8160, 8184;8160, 8368
+
+            ]
+            connect I_array "C function1.I_array" as Connection77
+            
+            connect Impp Resistance.Impp as Connection30
+            
+            connect Junction10 Product1.in as Connection68
+            [
+                        breakpoints =8568, 8064
+
+            ]
+            connect Junction11 Ns as Connection71
+            
+            connect Junction12 Junction7 as Connection74
+            
+            connect Junction3 Junction2 as Connection20
+            [
+                        breakpoints =7776, 8104
+
+            ]
+            connect Junction4 Voc as Connection27
+            
+            connect Junction5 Isc as Connection32
+            
+            connect Junction6 Short_ckt_I_T_dependence.IscT as Connection37
+            [
+                        breakpoints =8072, 8160
+
+            ]
+            connect Junction7 Thermal_Voltage.Vt as Connection41
+            
+            connect Junction9 Junction10 as Connection67
+            [
+                        breakpoints =8568, 8032
+
+            ]
+            connect Limit1.out "Transport Delay1.in" as Connection2
+            
+            connect Limit1.in VDC as Connection1
+            
+            connect Ncell Thermal_Voltage.Ncell as Connection8
+            
+            connect Np Junction9 as Connection55
+            
+            connect Open_ckt_V.T Junction3 as Connection21
+            
+            connect Open_ckt_V.Voc Junction4 as Connection26
+            
+            connect Product1.out "C function1.Isc" as Connection46
+            
+            connect Product1.in1 Shirt_crk_I_TE_dependence.Isc_out as Connection44
+            [
+                        breakpoints =8664, 8080;8664, 8320
+
+            ]
+            connect Product2.out "C function1.I0" as Connection52
+            
+            connect Product2.in1 Dark_Current.I0 as Connection47
+            
+            connect Product2.in Junction10 as Connection69
+            
+            connect Product3.in Junction11 as Connection70
+            
+            connect Product3.in1 Junction9 as Connection57
+            
+            connect Product3.out Product4.in as Connection59
+            
+            connect Product4.out "C function1.Rs" as Connection58
+            
+            connect Product5.out "C function1.Vt" as Connection61
+            
+            connect Product5.in Junction11 as Connection72
+            
+            connect Product5.in1 Junction12 as Connection75
+            
+            connect Resistance.Voc Junction4 as Connection28
+            
+            connect Resistance.Isc Junction5 as Connection33
+            [
+                        breakpoints =8184, 8040;8000, 8040;8000, 8040;7672, 8040
+
+            ]
+            connect Resistance.Vt Junction7 as Connection40
+            
+            connect Resistance.Rs Product4.in1 as Connection60
+            [
+                        breakpoints =8408, 7904;8760, 7904;8760, 8288
+
+            ]
+            connect Shirt_crk_I_TE_dependence.E E as Connection34
+            
+            connect Shirt_crk_I_TE_dependence.IscT Junction6 as Connection36
+            [
+                        breakpoints =8072, 8336
+
+            ]
+            connect Short_ckt_I_T_dependence.T Junction3 as Connection19
+            
+            connect Short_ckt_I_T_dependence.Isc Junction5 as Connection31
+            
+            connect T Junction2 as Connection13
+            
+            connect Thermal_Voltage.T Junction2 as Connection15
+            
+            connect "Transport Delay1.out" "C function1.V" as Connection43
+            
+            connect V_array "C function1.V_array" as Connection76
+            
+            connect Vmpp Resistance.Vmpp as Connection29
+            
+            connect alpha_Isc Short_ckt_I_T_dependence.alpha_Isc as Connection17
+            
+            connect beta_Voc Open_ckt_V.beta_Voc as Connection22
+            
+            
+
+            
+        }
+        [
+            position = 7856, 8208
+            size = 224, 232
+
+        ]
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        connect E.out PV_array.E as Connection5
+        
+        connect I_array.in PV_array.I_array as Connection2
+        
+        connect Impp.out PV_array.Impp as Connection19
+        [
+                    breakpoints =7728, 8712;7728, 8296
+
+        ]
+        connect Isc.out PV_array.Isc as Connection15
+        [
+                    breakpoints =7688, 8464;7688, 8232
+
+        ]
+        connect Np.out PV_array.Np as Connection11
+        [
+                    breakpoints =7632, 8288;7632, 8184
+
+        ]
+        connect Ns.out PV_array.Ns as Connection10
+        [
+                    breakpoints =7616, 8224;7616, 8168
+
+        ]
+        connect PV_array.Ncell Ncell.out as Connection12
+        [
+                    breakpoints =7648, 8200;7648, 8344
+
+        ]
+        connect T.out PV_array.T as Connection4
+        [
+                    breakpoints =7656, 8088;7656, 8136
+
+        ]
+        connect VDC.out PV_array.VDC as Connection9
+        [
+                    breakpoints =7728, 8040;7728, 8120
+
+        ]
+        connect V_array.in PV_array.V_array as Connection1
+        
+        connect Vmpp.out PV_array.Vmpp as Connection18
+        [
+                    breakpoints =7720, 8648;7720, 8280
+
+        ]
+        connect Voc.out PV_array.Voc as Connection16
+        [
+                    breakpoints =7712, 8576;7712, 8264
+
+        ]
+        connect alpha_Isc.out PV_array.alpha_Isc as Connection13
+        [
+                    breakpoints =7672, 8408;7672, 8216
+
+        ]
+        connect beta_Voc.out PV_array.beta_Voc as Connection14
+        [
+                    breakpoints =7704, 8520;7704, 8248
+
+        ]
+        
+
+        
+    }
+
+    
+    
+    default {
+        
+        gen_c_function {
+            in_terminal_properties = "real in;"
+            in_terminal_labels = ""
+            out_terminal_properties = "real out;"
+            out_terminal_labels = ""
+            no_feed_inputs = ""
+            no_feed_outputs = ""
+            in_terminal_dimensions = ""
+            in_terminal_dimensions_str = ""
+            out_terminal_dimensions = ""
+            out_terminal_dimensions_str = ""
+            output_fnc = ""
+            update_fnc = ""
+            init_fnc = ""
+            global_variables = ""
+            parameters = ""
+            execution_rate = "inherit"
+        }
+        
+        gen_limiter {
+            upper_limit = "[\'inf\']"
+            lower_limit = "[\'-inf\']"
+            execution_rate = "inherit"
+        }
+        
+        gen_math_fnc {
+            mathematical_fn = "exponential"
+            execution_rate = "inherit"
+        }
+        
+        gen_probe {
+            addr = "0"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "generic"
+            execution_rate = "inherit"
+        }
+        
+        gen_product {
+            signs = "2"
+            execution_rate = "inherit"
+        }
+        
+        gen_sum {
+            signs = "2"
+            execution_rate = "inherit"
+        }
+        
+        gen_transport_delay {
+            time_delay = "0.1"
+            init_value = "0"
+            signal_out_type = "inherit"
+            execution_rate = "inherit"
+        }
+        
+        src_constant {
+            value = "1"
+            signal_type = "real"
+            execution_rate = "100e-6"
+        }
+        
+        src_scada_input {
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
+        }
+    }
+
+}

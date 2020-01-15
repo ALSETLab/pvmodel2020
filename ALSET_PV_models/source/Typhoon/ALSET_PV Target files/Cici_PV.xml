@@ -1,0 +1,2673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net_list>
+    
+   <system_description>
+        <name>280f09b6ac9711e9b1c8b5419ae29ed3</name>
+        <sw_version>2018.1 SP1</sw_version>
+
+        <hw_settings>
+            <hardware_product_id>HIL603</hardware_product_id>
+            <hardware_revision>3</hardware_revision>
+            <hardware_configuration_id>1</hardware_configuration_id>
+            <hil_device_id>None</hil_device_id>
+            <device_ao_limit_enable>True</device_ao_limit_enable>
+        </hw_settings>
+
+        <solver_settings>
+            <sim_time_step>auto</sim_time_step>
+            <sim_discr_scale>1.0</sim_discr_scale>
+            <sim_method>exact</sim_method>
+            <enb_gds_oversampling>True</enb_gds_oversampling>
+            <show_modes>False</show_modes>
+            <cpl_stb>False</cpl_stb>
+            <enb_dep_sw_detect>False</enb_dep_sw_detect>
+            <enb_pole_shift>True</enb_pole_shift>
+            <ss_calc_method>systematic elimination</ss_calc_method>
+        </solver_settings>
+
+        <system_sp_settings>
+            <sys_sp_rate_1>0.0001</sys_sp_rate_1>
+            <sys_sp_rate_2>0.05</sys_sp_rate_2>
+        </system_sp_settings>
+
+        <user_sp_settings>
+            <code_section>internal memory</code_section>
+            <data_section>internal memory</data_section>
+        </user_sp_settings>
+    </system_description>
+
+    
+    
+    <signal_processing><electric_node_list>
+        
+        </electric_node_list>
+
+        <dsp_node_list>
+        <node>0</node>
+        <node>1</node>
+        <node>2</node>
+        <node>3</node>
+        <node>4</node>
+        <node>5</node>
+        <node>6</node>
+        <node>7</node>
+        <node>8</node>
+        <node>9</node>
+        <node>10</node>
+        <node>11</node>
+        <node>12</node>
+        <node>13</node>
+        <node>14</node>
+        <node>15</node>
+        <node>16</node>
+        <node>17</node>
+        <node>18</node>
+        <node>19</node>
+        <node>20</node>
+        <node>21</node>
+        <node>22</node>
+        <node>23</node>
+        <node>24</node>
+        <node>25</node>
+        <node>26</node>
+        <node>27</node>
+        <node>28</node>
+        <node>29</node>
+        <node>30</node>
+        <node>31</node>
+        <node>32</node>
+        <node>33</node>
+        <node>34</node>
+        <node>35</node>
+        <node>36</node>
+        <node>37</node>
+        <node>38</node>
+        <node>39</node>
+        <node>40</node>
+        <node>41</node>
+        <node>42</node>
+        <node>43</node>
+        <node>44</node>
+        <node>45</node>
+        <node>46</node>
+        <node>47</node>
+        <node>48</node>
+        <node>49</node>
+        <node>50</node>
+        <node>51</node>
+        <node>52</node>
+        <node>53</node>
+        <node>54</node>
+        <node>55</node>
+        <node>56</node>
+        <node>57</node>
+        <node>58</node>
+        <node>59</node>
+        <node>60</node>
+        </dsp_node_list>
+
+
+        <element_list>
+            
+  
+  <component>
+      <type>src_constant</type>
+      <name>Ncell</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[40.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>59</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Resistance.Product3</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>30</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>54</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>28</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Thermal_Voltage.Product3</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>38</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>35</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>18</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Product4</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>49</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>39</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>24</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Open_ckt_V.Product4</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>21</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>7</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>33</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Product3</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>39</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>17</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>52</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_c_function</type>
+      <name>PV_array.C function1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>in_terminal_properties</name>
+            <value>real Isc;real I0;real Rs;real Vt;real V;</value>
+        </parameter>
+        <parameter>
+            <name>in_terminal_labels</name>
+            <value>[(&#39;Isc&#39;, True), (&#39;I0&#39;, True), (&#39;Rs&#39;, True), (&#39;Vt&#39;, True), (&#39;V&#39;, True)]</value>
+        </parameter>
+        <parameter>
+            <name>out_terminal_properties</name>
+            <value>real V_array;real I_array;</value>
+        </parameter>
+        <parameter>
+            <name>out_terminal_labels</name>
+            <value>[(&#39;V_array&#39;, True), (&#39;I_array&#39;, True)]</value>
+        </parameter>
+        <parameter>
+            <name>no_feed_inputs</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>no_feed_outputs</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>in_terminal_dimensions</name>
+            <value>inherit;inherit;inherit;inherit;inherit</value>
+        </parameter>
+        <parameter>
+            <name>in_terminal_dimensions_str</name>
+            <value>Isc inherit;I0 inherit;Rs inherit;Vt inherit;V inherit</value>
+        </parameter>
+        <parameter>
+            <name>out_terminal_dimensions</name>
+            <value>inherit;inherit</value>
+        </parameter>
+        <parameter>
+            <name>out_terminal_dimensions_str</name>
+            <value>V_array inherit;I_array inherit</value>
+        </parameter>
+        <parameter>
+            <name>output_fnc</name>
+            <value>/*Begin code section*/
+FI0=Istart-Isc+I0*(exp((V+Istart*Rs)/Vt)-1);
+FpI0=1+I0*(exp((V+Istart*Rs)/Vt))*Rs/Vt;
+I1=Istart-FI0/FpI0;
+
+FI1=I1-Isc+I0*(exp((V+I1*Rs)/Vt)-1);
+FpI1=1+I0*(exp((V+I1*Rs)/Vt))*Rs/Vt;
+I2=I1-FI1/FpI1;
+
+FI2=I2-Isc+I0*(exp((V+I2*Rs)/Vt)-1);
+FpI2=1+I0*(exp((V+I2*Rs)/Vt))*Rs/Vt;
+I3=I2-FI2/FpI2;
+
+FI3=I3-Isc+I0*(exp((V+I3*Rs)/Vt)-1);
+FpI3=1+I0*(exp((V+I3*Rs)/Vt))*Rs/Vt;
+I4=I3-FI3/FpI3;
+
+FI4=I4-Isc+I0*(exp((V+I4*Rs)/Vt)-1);
+FpI4=1+I0*(exp((V+I4*Rs)/Vt))*Rs/Vt;
+I5=I4-FI4/FpI4;
+
+I_array=I5;
+V_array = V;
+/*End code section*/</value>
+        </parameter>
+        <parameter>
+            <name>update_fnc</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>init_fnc</name>
+            <value>/*Begin code section*/
+Istart=0.01; 
+FI0=0; 
+FpI0=0; 
+I1=Istart; 
+
+FI1=0; 
+FpI1=0; 
+I2=I1; 
+
+FI2=0; 
+FpI2=0; 
+I3=I2; 
+
+FI3=0; 
+FpI3=0; 
+I4=I3;
+
+FI4=0; 
+FpI4=0; 
+I5=4.58;
+/*End code section*/</value>
+        </parameter>
+        <parameter>
+            <name>global_variables</name>
+            <value>real Istart;real I1;real I2;real I3;real I4;real I5;real FI0;real FpI0;real FI1;real FpI1;real FI2;real FpI2;real FI3;real FpI3;real FI4;real FpI4;</value>
+        </parameter>
+        <parameter>
+            <name>parameters</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>Isc</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>0</node>
+    </terminal>
+    <terminal>
+        <name>I0</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>22</node>
+    </terminal>
+    <terminal>
+        <name>Rs</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>55</node>
+    </terminal>
+    <terminal>
+        <name>Vt</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>60</node>
+    </terminal>
+    <terminal>
+        <name>V</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>8</node>
+    </terminal>
+    <terminal>
+        <name>V_array</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>4</node>
+    </terminal>
+    <terminal>
+        <name>I_array</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>25</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Shirt_crk_I_TE_dependence.Product1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>31</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>46</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>26</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_math_fnc</type>
+      <name>PV_array.Resistance.Mathematical function1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>mathematical_fn</name>
+            <value>ln</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>41</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>19</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Shirt_crk_I_TE_dependence.Constant1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[1000.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>26</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_scada_input</type>
+      <name>Np</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>addr</name>
+            <value>0</value>
+        </parameter>
+        <parameter>
+            <name>format</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>override_signal_name</name>
+            <value>False</value>
+        </parameter>
+        <parameter>
+            <name>signal_name</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>min</name>
+            <value>-1000000.0</value>
+        </parameter>
+        <parameter>
+            <name>max</name>
+            <value>1000000.0</value>
+        </parameter>
+        <parameter>
+            <name>def_value</name>
+            <value>0.0</value>
+        </parameter>
+        <parameter>
+            <name>unit</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>15</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_math_fnc</type>
+      <name>PV_array.Dark_Current.Mathematical function1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>mathematical_fn</name>
+            <value>exponential</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>51</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>42</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Dark_Current.Product2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>27</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>2</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>51</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Constant3</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[1.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>40</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>beta_Voc</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[-0.1]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>1</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Open_ckt_V.Constant4</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[100.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>43</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Thermal_Voltage.Product4</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>23</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>59</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>38</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Product5</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>2</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>56</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>13</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Thermal_Voltage.K</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[1.38e-23]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>16</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_sum</type>
+      <name>PV_array.Thermal_Voltage.Sum1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>12</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>9</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>34</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Thermal_Voltage.Tref_K</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[273.15]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>34</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Product5</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>60</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>10</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>23</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Constant2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[100.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>52</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_scada_input</type>
+      <name>VDC</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>addr</name>
+            <value>0</value>
+        </parameter>
+        <parameter>
+            <name>format</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>override_signal_name</name>
+            <value>False</value>
+        </parameter>
+        <parameter>
+            <name>signal_name</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>min</name>
+            <value>-1000000.0</value>
+        </parameter>
+        <parameter>
+            <name>max</name>
+            <value>1000000.0</value>
+        </parameter>
+        <parameter>
+            <name>def_value</name>
+            <value>0.0</value>
+        </parameter>
+        <parameter>
+            <name>unit</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>47</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Product2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>17</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>3</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>37</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Product1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>0</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>15</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>29</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_sum</type>
+      <name>PV_array.Resistance.Sum1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>+-</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>44</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>56</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>28</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Open_ckt_V.Product1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>36</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>1</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>43</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>T</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[25.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>9</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>alpha_Isc</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[2e-05]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>14</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Thermal_Voltage.Product2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>57</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>5</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>16</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_sum</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Sum2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>13</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>40</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>49</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_sum</type>
+      <name>PV_array.Open_ckt_V.Sum1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>+-</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>33</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>9</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>50</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Resistance.Product2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>53</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>23</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>41</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Product2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>22</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>15</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>27</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Thermal_Voltage.Product1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>35</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>57</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>12</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Dark_Current.Product1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>42</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>45</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>23</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>Voc</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[43.8]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>20</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Product3</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>32</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>10</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>15</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>Vmpp</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[35.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>48</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Shirt_crk_I_TE_dependence.Product2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>29</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>2</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>31</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_scada_input</type>
+      <name>Ns</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>addr</name>
+            <value>0</value>
+        </parameter>
+        <parameter>
+            <name>format</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>override_signal_name</name>
+            <value>False</value>
+        </parameter>
+        <parameter>
+            <name>signal_name</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>min</name>
+            <value>-1000000.0</value>
+        </parameter>
+        <parameter>
+            <name>max</name>
+            <value>1000000.0</value>
+        </parameter>
+        <parameter>
+            <name>def_value</name>
+            <value>0.0</value>
+        </parameter>
+        <parameter>
+            <name>unit</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>10</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_sum</type>
+      <name>PV_array.Resistance.Sum2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>58</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>53</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>20</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_sum</type>
+      <name>PV_array.Open_ckt_V.Sum2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>45</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>20</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>21</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_sum</type>
+      <name>PV_array.Resistance.Sum3</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>+-</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>54</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>58</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>48</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_probe</type>
+      <name>I_array</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>addr</name>
+            <value>0</value>
+        </parameter>
+        <parameter>
+            <name>override_signal_name</name>
+            <value>False</value>
+        </parameter>
+        <parameter>
+            <name>signal_name</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>generic</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>25</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Thermal_Voltage.q</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[1.6e-19]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>18</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Tref</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[25.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>6</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>Impp</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[4.58]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>28</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Constant1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[100.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>37</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_limiter</type>
+      <name>PV_array.Limit1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>upper_limit</name>
+            <value>[876.0]</value>
+        </parameter>
+        <parameter>
+            <name>lower_limit</name>
+            <value>[0.0]</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>47</node>
+    </terminal>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>11</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>E</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[1000.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>46</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Resistance.Product1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>19</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>44</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>56</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_transport_delay</type>
+      <name>PV_array.Transport Delay1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>time_delay</name>
+            <value>[0.05]</value>
+        </parameter>
+        <parameter>
+            <name>init_value</name>
+            <value>[0.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_out_type</name>
+            <value>inherit</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>11</node>
+    </terminal>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>8</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_probe</type>
+      <name>V_array</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>addr</name>
+            <value>0</value>
+        </parameter>
+        <parameter>
+            <name>override_signal_name</name>
+            <value>False</value>
+        </parameter>
+        <parameter>
+            <name>signal_name</name>
+            <value></value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>generic</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>4</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>Isc</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[5.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>56</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Open_ckt_V.Tref</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[25.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>50</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Product1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>*/</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>3</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>14</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>56</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Open_ckt_V.Product2</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>7</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>36</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>20</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_sum</type>
+      <name>PV_array.Short_ckt_I_T_dependence.Sum1</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>+-</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>24</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>9</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>6</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>src_constant</type>
+      <name>PV_array.Thermal_Voltage.A</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>value</name>
+            <value>[1.0]</value>
+        </parameter>
+        <parameter>
+            <name>signal_type</name>
+            <value>real</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>5</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+  <component>
+      <type>gen_product</type>
+      <name>PV_array.Product4</name>
+      <system_cpu_component>False</system_cpu_component>
+
+      
+    <parameters>
+        <parameter>
+            <name>signs</name>
+            <value>2</value>
+        </parameter>
+        <parameter>
+            <name>execution_rate</name>
+            <value>5e-05</value>
+        </parameter>
+    </parameters>
+
+      
+    <terminals>
+    <terminal>
+        <name>out</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>55</node>
+    </terminal>
+    <terminal>
+        <name>in</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>32</node>
+    </terminal>
+    <terminal>
+        <name>in1</name>
+        <type>sp</type>
+        <signal_type>real</signal_type>
+        <node>30</node>
+    </terminal>
+
+    </terminals>
+
+  </component>
+        </element_list>
+
+
+    </signal_processing>
+    
+
+</net_list>

@@ -1,0 +1,235 @@
+<ui_settings>
+    <version>2.1</version>
+    <model_locked>False</model_locked>
+    <canvas_bg_color>#ffffff</canvas_bg_color>
+    <initialization_code><![CDATA[# NOTE: Variables and functions defined here will be
+# available for use in all Macro and Expression scripts.
+# NOTE: This code is always executed prior simulation start.
+
+# Variable 'SETTINGS_DIR' holds directory where loaded Panel .cus file is located.
+# Also you can call 'get_settings_dir_path()' function in any
+# Macro and Expression scripts to get the same directory.
+SETTINGS_DIR = get_settings_dir_path()
+
+# HIL API is imported as 'hil'
+# Numpy module is imported as 'np'
+# Scipy module is imported as 'sp'
+# Schematic Editor model namespace is imported as 'scm'
+# Function for printing to HIL SCADA Message log is imported as 'printf'.
+
+]]></initialization_code>
+    <components>
+        <component_data>
+                <id>2778dd92a4d711e9b71bb224ba8748bc</id>
+                <name><![CDATA[Vdc]]></name>
+                <type>SliderMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+import typhoon.api.hil as hil
+
+# NOTE: entered value is available through variable 'inputValue'
+hil.set_scada_input_value('VDC', value = inputValue)
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[800.0]]></inputValue>
+                <min>0.0</min>
+                <max>1000.0</max>
+                <step>10.0</step>
+                <hierarchy_position>1</hierarchy_position>
+                <widget_settings>
+                    <x>16</x>
+                    <y>64</y>
+                    <width>288</width>
+                    <height>48</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>4e1ed522a4d711e9960db224ba8748bc</id>
+                <name><![CDATA[Ns]]></name>
+                <type>SliderMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+import typhoon.api.hil as hil
+
+# NOTE: entered value is available through variable 'inputValue'
+hil.set_scada_input_value('Ns', value = inputValue)
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[20.0]]></inputValue>
+                <min>0.0</min>
+                <max>100.0</max>
+                <step>1.0</step>
+                <hierarchy_position>1</hierarchy_position>
+                <widget_settings>
+                    <x>24</x>
+                    <y>152</y>
+                    <width>288</width>
+                    <height>48</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>5d99279ca4d711e995f4b224ba8748bc</id>
+                <name><![CDATA[Np]]></name>
+                <type>SliderMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+import typhoon.api.hil as hil
+
+# NOTE: entered value is available through variable 'inputValue'
+hil.set_scada_input_value('Np', value = inputValue)
+]]></on_use_code>
+                <on_start_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it, widget value won't be changed.
+widgetValue = None
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Custom code]]></on_start_code_source>
+                <inputValue><![CDATA[140.0]]></inputValue>
+                <min>0.0</min>
+                <max>200.0</max>
+                <step>1.0</step>
+                <hierarchy_position>1</hierarchy_position>
+                <widget_settings>
+                    <x>24</x>
+                    <y>224</y>
+                    <width>288</width>
+                    <height>48</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>72afd676a4d711e99126b224ba8748bc</id>
+                <name><![CDATA[V_array]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Analog signal</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+displayValue = 0.0
+
+]]></code>
+                <signal_name><![CDATA[V_array]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>1</hierarchy_position>
+                <widget_settings>
+                    <x>576</x>
+                    <y>104</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>78da30faa4d711e99766b224ba8748bc</id>
+                <name><![CDATA[I_array]]></name>
+                <type>DigitalDisplay</type>
+                <description><![CDATA[]]></description>
+                <data_type>Analog signal</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# mandatory variable used for storing value
+# that will be displayed
+displayValue = 0.0
+
+]]></code>
+                <signal_name><![CDATA[I_array]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <decimals><![CDATA[2]]></decimals>
+                <updateRate>500</updateRate>
+                <hierarchy_position>1</hierarchy_position>
+                <widget_settings>
+                    <x>576</x>
+                    <y>208</y>
+                    <width>144</width>
+                    <height>56</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <green_range>(0, 0, 0, 0)</green_range>
+                    <orange_range>(0, 0, 0, 0)</orange_range>
+                    <red_range>(0, 0, 0, 0)</red_range>
+                </advance_widget_settings>
+            </component_data>
+        </components>
+</ui_settings>

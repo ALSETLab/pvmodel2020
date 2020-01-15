@@ -1,0 +1,7 @@
+
+				MODES MAPPING FILE
+
+*************** Writting SPC1 Modes ***************
+Definition of switches for switches possition vector
+Modes value relation to switches possition
+[ MODE NUMBER: 1 	SWITCHES POSSITION:  ] 	merged to  

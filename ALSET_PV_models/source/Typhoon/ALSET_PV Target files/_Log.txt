@@ -1,0 +1,115 @@
+---------- Error Report ----------
+
+
+
+
+
+---------- Warning Report ----------
+
+
+
+
+
+---------- Messages ----------
+
+Create circuit structure ... Building state space representation for subcircuit 1...
+
+-----------------------------------
+0) analysing configuration c...
+Modes have been generated analysed for subcircuit 1 !
+-----------------------------------
+Reducing number of modes for subcircuit: 1 ... Done
+Reduction ratio of subcircuit 1 is : 0%
+Discretizing state space equations for subcircuit 1 with time step 5e-007 ...
+-----------------------------------
+Discretizing & packing modes...
+Mode 
+Mode 
+Mode c
+Mapping subcircuit 1 to processor core 1...
+Building mapping directives for inputs...
+mapping directives for inputs are built.
+-----------------------------------
+0) fitting mode c in the memory map... success.
+Starting matrix scheduler...
+Running scheduler for SPC1...
+Matrix scheduler done...
+Starting matrix scheduler...
+Running scheduler for SPC2...
+Matrix scheduler done...
+Starting matrix scheduler...
+Running scheduler for SPC3...
+Matrix scheduler done...
+Starting matrix scheduler...
+Running scheduler for SPC4...
+Matrix scheduler done...
+Starting matrix scheduler...
+Running scheduler for SPC5...
+Matrix scheduler done...
+Starting matrix scheduler...
+Running scheduler for SPC6...
+Matrix scheduler done...
+Compiling processor target files ...
+Analyzing configuration against HW constraints...Running area analysis...
+	Signal Generator utilization:                   0   out of  12        0%
+	Look Up Table utilization:                      0   out of   8        0%
+	Standard Processing Core utilization:           1   out of   6       17%
+	Machine Solver utilization:                     0   out of   2        0%
+Running SPC specific analysis:
+	Contactor utilization in SPC1:                  0   out of   6        0%
+	Contactor utilization in SPC2:                  0   out of   6        0%
+	Contactor utilization in SPC3:                  0   out of   6        0%
+	Contactor utilization in SPC4:                  0   out of   6        0%
+	Contactor utilization in SPC5:                  0   out of   6        0%
+	Contactor utilization in SPC6:                  0   out of   6        0%
+SPC PESB processing power utilization summary:
+	Overall weight of Power Electronics Converters in SPC1:     0   out of   3        0%
+	Overall weight of Power Electronics Converters in SPC2:     0   out of   3        0%
+	Overall weight of Power Electronics Converters in SPC3:     0   out of   3        0%
+	Overall weight of Power Electronics Converters in SPC4:     0   out of   3        0%
+	Overall weight of Power Electronics Converters in SPC5:     0   out of   3        0%
+	Overall weight of Power Electronics Converters in SPC6:     0   out of   3        0%
+SP controlled sources utilization summary:
+	SP sources utilization in SPC1:                 0   out of  16        0%
+	SP sources utilization in SPC2:                 0   out of  16        0%
+	SP sources utilization in SPC3:                 0   out of  16        0%
+	SP sources utilization in SPC4:                 0   out of  16        0%
+	SP sources utilization in SPC5:                 0   out of  16        0%
+	SP sources utilization in SPC6:                 0   out of  16        0%
+Time varying elements solvers utilization summary:
+	TVE solvers utilization in SPC1:                0   out of  16        0%
+	TVE solvers utilization in SPC2:                0   out of  16        0%
+	TVE solvers utilization in SPC3:                0   out of  16        0%
+	TVE solvers utilization in SPC4:                0   out of  16        0%
+	TVE solvers utilization in SPC5:                0   out of  16        0%
+	TVE solvers utilization in SPC6:                0   out of  16        0%
+Matrix memory utilization summary:
+	Standard Processing Core 1:       0%
+	Standard Processing Core 2:       0%
+	Standard Processing Core 3:       0%
+	Standard Processing Core 4:       0%
+	Standard Processing Core 5:       0%
+	Standard Processing Core 6:       0%
+Running timing analysis...
+Time slot usage summary:
+	Standard Processing Core 1:      45%
+	Standard Processing Core 2:       0%
+	Standard Processing Core 3:       0%
+	Standard Processing Core 4:       0%
+	Standard Processing Core 5:       0%
+	Standard Processing Core 6:       0%
+Timing constraints were met
+Simulation time step set to:
+	Ts = 5e-007 s
+All constraints met.
+HW constraints analysis finished.
+Preparing control panel dataset ...
+MD file generator started...
+No machine detected in model. 
+No LUT detected in model. 
+MD file generator finished.
+Writting matrix binary data...
+Done.
+HSSL TX Configuration file written.
+HSSL RX Configuration file written.
+Writting DSP dataset
