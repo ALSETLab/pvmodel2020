@@ -4,7 +4,7 @@
 <img src="https://github.com/ALSETLab/pvmodel2020/blob/master/ALSET_PV_models/pic/pic.png" data-canonical-src="https://github.com/ALSETLab/pvmodel2020/blob/master/ALSET_PV_models/pic/pic.png" width="280" height="240" />
 
 This repository contains the models from the paper:
-> Xinlan Jia, Prottay M. Adhikari, and Luigi Vanfretti "Real-Time Simulation Models for Photovoltaic Cells and Arrays in Opal-RT and Typhoon-HIL," submitted to the 2020 IEEE PES General Meeting, August 2-6, 2020, at the Palais des congres de Montreal.
+> Xinlan Jia, Prottay M. Adhikari, and Luigi Vanfretti "Real-Time Simulation Models for Photovoltaic Cells and Arrays in Opal-RT and Typhoon-HIL," In Proceedings of the 2020 IEEE PES General Meeting, August 2-6, 2020.
 
 See the full paper for documentation on the models under the `./doc` folder.
 
